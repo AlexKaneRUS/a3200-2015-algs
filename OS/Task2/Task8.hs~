@@ -1,0 +1,10 @@
+func :: Int -> Bool
+func a | (||) (z < 1) (z > 10) = False
+       | otherwise = subfunc a 100
+       where z = div a 1000000000
+
+subfunc :: Int -> Int -> Bool
+subfunc a k | k == 10000000000 = subfunc (div a 10) 100
+            | (div a 10) == 0 = True
+            | (mod a 10 == (div ((mod a k) - (mod a (div k 10))) 10)) = False
+	    | otherwise = subfunc a (k * 10)

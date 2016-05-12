@@ -1,0 +1,13 @@
+data Tree a = Nil | Node a (Tree a) (Tree a)
+
+width :: Tree a -> Int
+width Nil = 1
+width (Node a ta tb) = (width ta) + (width tb)
+
+depth :: Tree a -> Int
+depth Nil = 1
+depth (Node a ta tb) = 1 + myMax (depth ta) (depth tb)
+
+myMax :: Int -> Int -> Int
+myMax a b | a > b = a
+          | otherwise = b

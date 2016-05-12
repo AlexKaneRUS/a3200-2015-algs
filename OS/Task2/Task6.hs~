@@ -1,0 +1,16 @@
+data Direction  = North | West | South | East deriving (Eq)
+data Action = Left1 | Right1 | Turnaround1 deriving (Eq)
+
+loc :: Direction -> Action -> Direction
+loc a b | (&&) (a == North) (b == Left1) = West
+	| (&&) (a == North) (b == Right1) = East
+	| (&&) (a == North) (b == Turnaround1) = South
+	| (&&) (a == South) (b == Left1) = East
+	| (&&) (a == South) (b == Right1) = West
+	| (&&) (a == South) (b == Turnaround1) = North
+	| (&&) (a == West) (b == Left1) = South
+	| (&&) (a == West) (b == Right1) = North
+        | (&&) (a == West) (b == Turnaround1) = East
+	| (&&) (a == East) (b == Left1) = North
+	| (&&) (a == East) (b == Turnaround1) = West
+	| otherwise = East

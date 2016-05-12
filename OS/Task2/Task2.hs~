@@ -1,0 +1,22 @@
+module Main where
+
+myNum :: (Integral a) => a -> a
+myNum a = if d /= 0
+          then 1 + (myNum d)
+          else 1
+	  where d = div a 10
+
+mySum :: (Integral a) => a -> a
+mySum a = if d /= 0
+          then m + (mySum d)
+          else m
+	  where d = div a 10
+	        m = if d /= 0 
+                    then mod a (10 * d)
+                    else mod a 10
+
+main = do a <- readLn
+          print (myNum a)
+          print (mySum a)
+
+      

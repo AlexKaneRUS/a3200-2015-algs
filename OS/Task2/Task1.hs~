@@ -1,0 +1,17 @@
+module Main where
+
+nOD a b = if mod c d == 0
+	  then d
+          else nOD (mod c d) d
+	  where c = myMax a b
+                d = myMin a b
+
+myMax :: (Ord a) => a -> a -> a
+myMax a b = if a > b then a else b
+
+myMin :: (Ord a) => a -> a -> a
+myMin a b = if a < b then a else b
+
+main = do a <- readLn
+          b <- readLn
+          print (nOD a b)	

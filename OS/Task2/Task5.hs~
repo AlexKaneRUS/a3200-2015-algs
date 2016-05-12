@@ -1,0 +1,8 @@
+module Main where
+
+square :: Float -> Float
+square a = func a a 0
+           where func c a d = if d < 1000000
+                              then func c ((a + c / a) / 2) (d + 1)
+                              else (a + c / a) / 2
+

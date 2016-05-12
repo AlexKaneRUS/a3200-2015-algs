@@ -1,0 +1,13 @@
+the_division :: [a] -> Int -> [[a]]
+the_division a n = b             
+	           where temp = splitAt (div (length a) n) a     
+                         b = (fst temp) : (the_division_one (snd temp) (n - 1) (div (length a) n))   
+                         the_division_one a n c =  if n > 0
+	                                           then b1
+	                                           else [a]
+                                                   where temp1 = splitAt c a
+                                                         b1 = (fst temp1) : (the_division_one (snd temp1) (n - 1) c)             
+
+get1 (a, _) = a
+
+get2 (_, a) = a
